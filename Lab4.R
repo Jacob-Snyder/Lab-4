@@ -45,3 +45,11 @@ ct <- data.frame(count)
 ct$transect.id <- row.names(ct)
 ct
 merge(x = ct,y = sdt,by = "transect.id")
+install.packages("tidyverse")
+Mean <- fish %>% group_by (transect.id) %>% summarise(mean=mean(parcel.density.m3))
+Mean
+data.frame(Mean)
+Mean$mean.pd <- row.names(Mean)
+Mean
+Mean <- fish %>% group_by (transect.id) %>% summarise(mean.pd=mean(parcel.density.m3))
+data.frame(Mean)
