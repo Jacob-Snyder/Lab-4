@@ -38,3 +38,10 @@ sd2
 merge(x = mean,y = stand.dev,... = "transect.id")
 sdt <- merge(x = sd2,y = st2,by = "transect.id")
 sdt
+count <- tapply(X = fish$parcel.density.m3,INDEX = fish$transect.id,FUN = sum)
+count
+data.frame(count)
+ct <- data.frame(count)
+ct$transect.id <- row.names(ct)
+ct
+merge(x = ct,y = sdt,by = "transect.id")
