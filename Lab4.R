@@ -93,3 +93,11 @@ transect.id  mean.pd
 37  OST15-8W-S 1.702851
 38  OST15-9W-M 2.882370
 39  OST15-9W-S 1.599573
+st.dev <- tapply(X = fish$parcel.density.m3,INDEX = fish$transect.id,FUN = sd)
+data.frame(st.dev)
+mpd <- data.frame(Mean)
+sdpd <- data.frame(st.dev)
+sdpd$transect.id <- row.names(sdpd)
+sdpd
+?join
+inner_join(x = mpd,y = sdpd,"transect.id")
