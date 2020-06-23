@@ -127,3 +127,27 @@ MaxMin <- inner_join(x = MAXIMUM,y = MINIMUM,"depth")
 MedMean <- inner_join(x = MEDIAN,y = MEAN,"depth")
 MaxMin.MedMean <- inner_join(x = MaxMin,y = MedMean,"depth")                 
 MaxMin.MedMean
+max <- tapply(X = fish$parcel.length.m,INDEX = fish$area_fac,FUN = min)
+data.frame(max)
+MAX.A <- data.frame(max)
+MAX.A$area <- row.names(MAX.A)
+MAX.A
+min <- tapply(X = fish$parcel.length.m,INDEX = fish$area_fac,FUN = min)
+data.frame(min)
+MIN.A <- data.frame(min)
+MIN.A$area <- row.names(MIN.A)
+MIN.A
+med <- tapply(X = fish$parcel.length.m,INDEX=fish$area_fac,FUN = median)
+data.frame(med)
+MED.A <- data.frame(med)
+MED.A$area <- row.names(MED.A)
+MED.A
+m.e.a.n <- tapply(X = fish$parcel.length.m,INDEX = fish$area_fac,FUN = mean)
+data.frame(m.e.a.n)
+MEAN.A <- data.frame(m.e.a.n)
+MEAN.A$area <- row.names(MEAN.A)
+MEAN.A
+MaxMin.A <- inner_join(x = MAX.A,y = MIN.A,"area")
+MedMean.A <- inner_join(x = MED.A,y = MEAN.A,"area")
+A.MaxMinMedMean <- inner_join(x = MaxMin.A,y = MedMean.A,"area")
+A.MaxMinMedMean
