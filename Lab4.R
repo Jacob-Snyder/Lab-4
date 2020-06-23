@@ -101,3 +101,9 @@ sdpd$transect.id <- row.names(sdpd)
 sdpd
 ?join
 inner_join(x = mpd,y = sdpd,"transect.id")
+Count <- tapply(X = fish$parcel.density.m3,INDEX = fish$transect.id,FUN = sum)
+data.frame(Count)
+Count <- data.frame(Count)
+Count$transect.id <- row.names(Count)
+Count
+inner_join(x = sdt,y = Count,"transect.id")
